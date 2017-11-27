@@ -214,6 +214,13 @@ extension BinarySearchTree: CustomStringConvertible {
         }
         return edges
     }
+    // Is Binary search tree
+    public func isBST(minValue: T, maxValue: T) -> Bool {
+        if value < minValue || value > maxValue { return false }
+        let leftBST = left?.isBST(minValue: minValue, maxValue: value) ?? true
+        let rightBST = right?.isBST(minValue: value, maxValue: maxValue) ?? true
+        return leftBST && rightBST
+    }
 }
 
 
